@@ -1,13 +1,13 @@
 version: "3.9"
 
 services:
-  rooms:
+  trains:
     image: cadin7/train-app:1.0
     ports:
       - "8080:8080"
     environment:
       - SPRING_DATA_MONGODB_URI=mongodb+srv://cadin:tImCDRu18ftyjkW1@fullstack.zykyy.mongodb.net/train?retryWrites=true&w=majority
-    container_name: rooms-app
+    container_name: trains-app
     depends_on:
       - mongodb
   mongodb:

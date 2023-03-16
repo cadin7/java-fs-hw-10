@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  rooms:
+    image: cadin7/train-app:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://cadin:tImCDRu18ftyjkW1@fullstack.zykyy.mongodb.net/train?retryWrites=true&w=majority
+    container_name: rooms-app
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=cadin
+      - MONGO_INITDB_ROOT_PASSWORD=tImCDRu18ftyjkW1
+    volumes:
+      - /tmp/mongodata:/data/db
+    container_name: mongodb
